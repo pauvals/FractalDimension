@@ -1,0 +1,14 @@
+fractal-slabcito.py
+test-fractal.py
+salida
+*.aux
+*.csv
+*.log
+*.out
+*.pdf
+*.plt
+*.png
+*.tex
+output*.txt
+slab*.txt
+*.xyz
