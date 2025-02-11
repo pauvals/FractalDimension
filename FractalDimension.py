@@ -31,7 +31,8 @@ def fractal_dimension(array, max_box_size = None, min_box_size = 1, n_samples = 
         max_box_size = int(np.floor(np.log2(np.min(array.shape))))
     scales = np.floor(np.logspace(max_box_size,min_box_size, num = n_samples, base =2 ))
     scales = np.unique(scales) #remove duplicates that could occur as a result of the floor
-    
+    print(scales)
+
     #get the locations of all non-zero pixels
     locs = np.where(array > 0)
     voxels = np.array([(x,y,z) for x,y,z in zip(*locs)])
@@ -73,8 +74,8 @@ def fractal_dimension(array, max_box_size = None, min_box_size = 1, n_samples = 
     if plot:
         fig, ax = plt.subplots(figsize = (8,6))
         ax.scatter(np.log(1/scales), np.log(np.unique(Ns)), c = "teal", label = "Measured ratios")
-        ax.set_ylabel("$\log N(\epsilon)$")
-        ax.set_xlabel("$\log 1/ \epsilon$")
+        ax.set_ylabel("$\\log N(\\epsilon)$")
+        ax.set_xlabel("$\\log 1/\\epsilon$")
         fitted_y_vals = np.polyval(coeffs, np.log(1/scales))
         ax.plot(np.log(1/scales), fitted_y_vals, "k--", label = f"Fit: {np.round(coeffs[0],3)}X+{coeffs[1]}")
         ax.legend();
