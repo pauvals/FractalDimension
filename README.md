@@ -1,9 +1,10 @@
 # Box-counting in three dimensional numpy arrays.
 
-Description from [wikipedia](https://en.wikipedia.org/wiki/Fractal_dimension)
->In mathematics, more specifically in fractal geometry, a fractal dimension is a ratio providing a statistical index of complexity comparing how detail in a pattern (strictly speaking, a fractal pattern) changes with the scale at which it is measured. It has also been characterized as a measure of the space-filling capacity of a pattern that tells how a fractal scales differently from the space it is embedded in; a fractal dimension does not have to be an integer.
+Description from [wikipedia](https://en.wikipedia.org/w/index.php?title=Fractal_dimension&oldid=1253046936) (2/2025):
+>In mathematics, a fractal dimension is a term invoked in the science of geometry to provide a rational statistical index of complexity detail in a pattern. A fractal pattern changes with the scale at which it is measured. It is also a measure of the space-filling capacity of a pattern, and it tells how a fractal scales differently, in a fractal (non-integer) dimension.
 
-Here we offer a function that calculates the fractal dimension of an object embedded in three dimensional space using the boxcounting method, also known as the [Minkowski-Bouligand](https://en.wikipedia.org/wiki/Minkowski%E2%80%93Bouligand_dimension) dimension.
+
+Here [we](https://github.com/ChatzigeorgiouGroup) offer a function that calculates the fractal dimension of an object embedded in three dimensional space using the boxcounting method, also known as the [Minkowski-Bouligand](https://en.wikipedia.org/wiki/Minkowski%E2%80%93Bouligand_dimension) dimension.
 
 ### Usage
 Simple example, measuring a box in 3D space.
@@ -32,7 +33,7 @@ plt.show()
 
 For a more complete overview of the function and its parameters, have a look at the notebook detailing the development of the function in binder.
 
-## Our use case: measurement of the Fractal Dimension of a coordinates system from Molecular Dynamics simulations
+## A use case: measurement of the Fractal Dimension of a coordinates system from Molecular Dynamics simulations
 
 Using [dana](https://github.com/pauvals/din-mol-Li), our molecular dynamics program, we obtained different lithium metal anode configurations. One may use this script to analyze 
 their fractal dimension. We used directly the `fractal.py` script to analyze our processed outputs.
