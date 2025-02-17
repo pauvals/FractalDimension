@@ -97,7 +97,7 @@ with open('CG.xyz', 'r') as archivo:
             fd= 0.
 
         # Guardar fd vs frame
-        with open('output.txt', 'a') as file:
+        with open('fd.dat', 'a') as file:
             # write variables using str() function
             file.write(str(i) + ' ' + str(fd) + '\n')
 

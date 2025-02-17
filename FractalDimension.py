@@ -1,20 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Sep 16 09:47:15 2019
-
-@author: daniel
-"""
 import numpy as np
 import matplotlib.pyplot as plt
 
 def fractal_dimension(array, max_box_size = None, min_box_size = 1, n_samples = 20, n_offsets = 0, plot = False):
     """Calculates the fractal dimension of a 3D numpy array.
-    
+
     Args:
         array (np.ndarray): The array to calculate the fractal dimension of.
         max_box_size (int): The largest box size, given as the power of 2 so that
-                            2**max_box_size gives the sidelength of the largest box.                     
+                            2**max_box_size gives the sidelength of the largest box.
         min_box_size (int): The smallest box size, given as the power of 2 so that
                             2**min_box_size gives the sidelength of the smallest box.
                             Default value 1.
@@ -22,8 +17,7 @@ def fractal_dimension(array, max_box_size = None, min_box_size = 1, n_samples = 
         n_offsets (int): number of offsets to search over to find the smallest set N(s) to
                        cover  all voxels>0.
         plot (bool): set to true to see the analytical plot of a calculation.
-                            
-        
+
     """
     #determine the scales to measure on
     if max_box_size == None:
@@ -31,7 +25,7 @@ def fractal_dimension(array, max_box_size = None, min_box_size = 1, n_samples = 
         max_box_size = int(np.floor(np.log2(np.min(array.shape))))
     scales = np.floor(np.logspace(max_box_size,min_box_size, num = n_samples, base =2 ))
     scales = np.unique(scales) #remove duplicates that could occur as a result of the floor
-    print(scales)
+    #print(scales)
 
     #get the locations of all non-zero pixels
     locs = np.where(array > 0)
