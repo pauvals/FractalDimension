@@ -71,13 +71,18 @@ def fd_frames(n,r_CG):
     # df.to_csv("feta2.csv", sep=' ', header=False, index=False)
 
     global fd
-    fd = fractal_dimension(box,n_samples=20, max_box_size=6, plot =True)
-    # fd = fractal_dimension(box,n_samples=20, max_box_size=6, plot =False)
+    # fd = fractal_dimension(box,n_samples=20, max_box_size=6, plot =True)
+    fd = fractal_dimension(box,n_samples=20, max_box_size=6, plot =False)
     # plt.show()
     return fd
 
 # Input: CG.xyz generado con vmd topotools
 with open('CG.xyz', 'r') as archivo:
+    # abro archivo. sobreescribe anteriores versiones
+    file = open('fd-test.dat', 'w')
+    file.write('')
+    file.close()
+
     # itero sobre los frames
     n_frames= int(archivo.readline())
     for i in range(n_frames):
@@ -92,8 +97,8 @@ with open('CG.xyz', 'r') as archivo:
         if (n>0):
             fd_frames(n, r_CG)
             # guardo el gráfico calculado para cada frame
-            plt.savefig(f"box-count-{i}")
-            plt.close()
+            # plt.savefig(f"box-count-{i}")
+            # plt.close()
             # print(f"Fractal Dimension of the box: {fd}")
         else :
             # FIXME calcular solamente con un box con 0, sino no anda
