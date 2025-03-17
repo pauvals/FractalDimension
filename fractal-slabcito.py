@@ -7,16 +7,21 @@ import matplotlib.pyplot as plt
 def fd_frames(n,r_CG):
     # Del código de Muri
     # Defino el grillado 3D
-    nvx=301
-    nvy=301
-    nvz=301
+    # Calcula dim. fractal considerando un electrodo plano implícito
+    # a t= 0
+    nvx=304
+    nvy=304
+    nvz=304
 
     # Nodo inferior más cercano
-    boxmin = [0., 0., 0.]
+    boxmin = [0., 0., -3.2]
     boxmax = [300., 300., 300.]
     h=[(boxmax[0]-boxmin[0])/(nvx-1), (boxmax[1]-boxmin[1])/(nvy-1), (boxmax[2]-boxmin[2])/(nvz-1)]
     box = np.zeros(shape = (nvx,nvy,nvz))
-    nfr= 0
+    zmin = boxmin[2]/h[2]
+    izmin = int(abs(zmin))
+    box[:,:,0] = 1.
+
 
     # Mask dendritas en grilla
     for n_cg in range(n):
@@ -71,8 +76,8 @@ def fd_frames(n,r_CG):
     # df.to_csv("feta2.csv", sep=' ', header=False, index=False)
 
     global fd
-    fd = fractal_dimension(box,n_samples=20, max_box_size=6, plot =True)
-    # fd = fractal_dimension(box,n_samples=20, max_box_size=6, plot =False)
+    # fd = fractal_dimension(box,n_samples=20, max_box_size=6, plot =True)
+    fd = fractal_dimension(box,n_samples=20, max_box_size=6, plot =False)
     # plt.show()
     return fd
 
