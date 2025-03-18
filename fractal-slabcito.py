@@ -84,7 +84,7 @@ def fd_frames(n,r_CG):
 # Input: CG.xyz generado con vmd topotools
 with open('CG.xyz', 'r') as archivo:
     # abro archivo. sobreescribe anteriores versiones
-    file = open('fd-test.dat', 'w')
+    file = open('fd.dat', 'w')
     file.write('')
     file.close()
 
